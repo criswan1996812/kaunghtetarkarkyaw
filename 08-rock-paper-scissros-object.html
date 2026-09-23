@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Rock paper scissors</h1>
+    <button onclick="
+        playGame('rock');
+    ">rock</button>
+    <button onclick="
+        playGame('paper');
+    ">paper</button>
+    <button onclick="
+        playGame('scissors')
+    ">scissors</button>
+
+    <button onclick="
+        score.wins=0;
+        score.lossess = 0;
+        score.ties = 0;
+    ">Reset Score</button>
+
+    <script>
+         let score = {
+                wins: 0,
+                lossess : 0,
+                ties : 0
+            }
+        function playGame(player_move)
+        {
+            const computerMove =  computer_choice();
+            //alert(computerMove);
+            let result = '';
+            if (player_move==="rock")
+            {
+                if (computerMove === 'rock')
+                {
+                    result = 'tie';
+                }
+                else if (computerMove === 'paper')
+                {
+                    result = 'You lose';
+                }
+                else if (computerMove === 'scissors')
+                {
+                    result = 'You won';
+                }
+                //alert(`You picked rock. Computer picked ${computerMove}. Result: ${result}.`)
+            }
+            else if (player_move==="paper")
+            {
+                if (computerMove === 'rock')
+                {
+                    result = 'You won';
+                }
+                else if (computerMove === 'paper')
+                {
+                    result = 'tie';
+                }
+                else if (computerMove === 'scissors')
+                {
+                    result = 'You lose';
+                }
+                //alert(`You picked paper. Computer picked ${computerMove}. Result: ${result}.`)    
+            }
+            else if  (player_move === 'scissors')
+            {
+                 if (computerMove === 'rock')
+                {
+                    result = 'You lose';
+                }
+                else if (computerMove === 'paper')
+                {
+                    result = 'You won';
+                }
+                else if (computerMove === 'scissors')
+                {
+                    result = 'tie';
+                }
+                //alert(`You picked scissors. Computer picked ${computerMove}. Result: ${result}.`)    
+            }
+            if (result === "You won"){
+                score.wins+=1;
+            }
+            else if (result === "You lose")
+            {
+                score.lossess+=1;
+            }
+            else if (result === "tie")
+            {
+                score.ties+=1;
+            }
+            alert(`You picked ${player_move}. Computer picked ${computerMove}. Result: ${result}.
+            Wins:${score.wins},losses:${score.lossess},ties:${score.ties}.
+            `)
+        }
+        function computer_choice()
+        
+        {   let computerMove = '';
+            let randomNumber = Math.random();
+            
+            if (randomNumber>=0 && randomNumber<1/3)
+            {
+                computerMove = 'rock';
+            }
+            else if (randomNumber>=1/3 && randomNumber<2/3)
+            {
+                computerMove = 'paper';
+            }
+            else if (randomNumber>=2/3 && randomNumber<1)
+            {
+                computerMove = 'scissors';
+            }
+            return computerMove;
+        }
+    </script>
+</body>
+</html>
