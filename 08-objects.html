@@ -6,8 +6,22 @@
         <script>
             const product = {
                 name : "leo",
-                age  : 10
+                age  : 10,
+                'delivery-time':'1-day',
+                rating:{
+                    stars:4.5,
+                    count:87
+                },
+                fun:function func1(){
+                    console.log('function inside object');
+                }
             }
+            //product["fun"]();
+            ///console.log(product["rating"]["stars"]);
+            //console.log(product.rating.count)
+            //console.log(product['delivery-time'])
+            //let name = 'mg mg';
+            //console.log(product[name]);
             //console.log(product);
             //console.log(product.name);
             //console.log(product.age);
@@ -18,6 +32,12 @@
 
             //delete product.address;
             //console.log(product)
+            /*product = {name:"leo"}
+            console.log(product)*/
+
+            console.log(JSON.stringify(product));
+            const string = JSON.stringify(product);
+            console.log(JSON.parse(string));
         </script>
     </body>
 </html>
